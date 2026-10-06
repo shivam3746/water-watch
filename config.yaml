@@ -1,0 +1,47 @@
+data:
+  raw_path: data/processed/battledim.csv
+  timestamp_column: timestamp
+  leak_label_column: leak
+  pressure_sensors: []
+  flow_sensors: []
+  duplicate_strategy: mean
+
+split:
+  train_fraction: 0.7
+
+plots:
+  output_dir: artifacts/plots
+  max_pressure_sensors: 3
+  max_flow_sensors: 3
+
+baseline:
+  rolling_window: 6
+  threshold: null
+  persistence_hours: 3
+  recovery_hours: 24
+  cooldown_hours: 24
+  alpha: 1.0
+  threshold_quantile: 0.995
+  output_dir: artifacts/baseline
+
+evaluation:
+  leakage_path: data/raw/2018_Leakages.csv
+  alarm_paths:
+    baseline: artifacts/baseline/baseline_alarms.json
+    lightgbm: artifacts/lightgbm/lightgbm_alarms.json
+  max_detection_delay_hours: 24
+  output_dir: artifacts/results/evaluation
+
+classifier:
+  rolling_window: 6
+  onset_window_hours: 24
+  ridge_fraction: 0.5
+  validation_fraction: 0.2
+  persistence_hours: 3
+  threshold: null
+  threshold_candidates: [0.1, 0.3, 0.5, 0.7, 0.9]
+  n_estimators: 100
+  num_leaves: 15
+  learning_rate: 0.05
+  random_state: 42
+  output_dir: artifacts/lightgbm
