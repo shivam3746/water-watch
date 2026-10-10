@@ -1,0 +1,346 @@
+{
+  "schema_version": 1,
+  "kind": "alarm",
+  "alarm": {
+    "id": "baseline_deduplicated-2467aeae5db9",
+    "timestamp": "2018-08-07T05:50:00",
+    "score": 1.6500805791795008,
+    "detector": "baseline_deduplicated",
+    "affected_sensors": [
+      "pressure_n752",
+      "pressure_n288",
+      "pressure_n769"
+    ]
+  },
+  "timestamp": "2018-08-07T05:50:00",
+  "score": 1.6500805791794935,
+  "threshold": 1.1817301772736741,
+  "above_threshold": true,
+  "method": "exact additive residual score decomposition",
+  "context_start": "2018-08-06T23:55:00",
+  "context_end": "2018-08-07T05:50:00",
+  "smoothing_samples": 6,
+  "sensors": [
+    {
+      "sensor": "pressure_n752",
+      "score_contribution": 0.3739724570455355,
+      "score_share": 0.22663890585967275,
+      "smoothed_normalized_residual": 12.341091082502672,
+      "observed_pressure_m": 49.08,
+      "expected_pressure_m": 49.135220104047846,
+      "signed_residual_m": -0.05522010404784794
+    },
+    {
+      "sensor": "pressure_n288",
+      "score_contribution": 0.10432926023939189,
+      "score_share": 0.0632267669565991,
+      "smoothed_normalized_residual": 3.442865587899932,
+      "observed_pressure_m": 52.8,
+      "expected_pressure_m": 52.782555764929484,
+      "signed_residual_m": 0.017444235070513514
+    },
+    {
+      "sensor": "pressure_n769",
+      "score_contribution": 0.1001943381136823,
+      "score_share": 0.06072087592443769,
+      "smoothed_normalized_residual": 3.306413157751516,
+      "observed_pressure_m": 48.48,
+      "expected_pressure_m": 48.463225490878365,
+      "signed_residual_m": 0.01677450912163181
+    },
+    {
+      "sensor": "pressure_n644",
+      "score_contribution": 0.09615852183673866,
+      "score_share": 0.058275046109901925,
+      "smoothed_normalized_residual": 3.173231220612376,
+      "observed_pressure_m": 47.68,
+      "expected_pressure_m": 47.66727703815226,
+      "signed_residual_m": 0.012722961847742909
+    },
+    {
+      "sensor": "pressure_n31",
+      "score_contribution": 0.0622091038876833,
+      "score_share": 0.03770064606094384,
+      "smoothed_normalized_residual": 2.052900428293549,
+      "observed_pressure_m": 36.4,
+      "expected_pressure_m": 36.513758938554716,
+      "signed_residual_m": -0.1137589385547173
+    },
+    {
+      "sensor": "pressure_n506",
+      "score_contribution": 0.057252299575323795,
+      "score_share": 0.03469666893709678,
+      "smoothed_normalized_residual": 1.8893258859856852,
+      "observed_pressure_m": 53.67,
+      "expected_pressure_m": 53.68429069925803,
+      "signed_residual_m": -0.014290699258026507
+    },
+    {
+      "sensor": "pressure_n429",
+      "score_contribution": 0.055068482558902294,
+      "score_share": 0.03337320810495523,
+      "smoothed_normalized_residual": 1.8172599244437757,
+      "observed_pressure_m": 36.92,
+      "expected_pressure_m": 36.930991726120176,
+      "signed_residual_m": -0.010991726120174405
+    },
+    {
+      "sensor": "pressure_n613",
+      "score_contribution": 0.05387364580823145,
+      "score_share": 0.03264909998214769,
+      "smoothed_normalized_residual": 1.7778303116716379,
+      "observed_pressure_m": 56.31,
+      "expected_pressure_m": 56.32605051326775,
+      "signed_residual_m": -0.016050513267749977
+    },
+    {
+      "sensor": "pressure_n740",
+      "score_contribution": 0.05376797562580376,
+      "score_share": 0.03258506057476297,
+      "smoothed_normalized_residual": 1.774343195651524,
+      "observed_pressure_m": 43.8,
+      "expected_pressure_m": 43.79878392541206,
+      "signed_residual_m": 0.0012160745879370438
+    },
+    {
+      "sensor": "pressure_n229",
+      "score_contribution": 0.05088891374716941,
+      "score_share": 0.03084025979656948,
+      "smoothed_normalized_residual": 1.6793341536565904,
+      "observed_pressure_m": 52.68,
+      "expected_pressure_m": 52.71629938703731,
+      "signed_residual_m": -0.03629938703731028
+    },
+    {
+      "sensor": "pressure_n679",
+      "score_contribution": 0.05051272268920264,
+      "score_share": 0.0306122763497527,
+      "smoothed_normalized_residual": 1.6669198487436871,
+      "observed_pressure_m": 47.34,
+      "expected_pressure_m": 47.32863483649406,
+      "signed_residual_m": 0.011365163505942633
+    },
+    {
+      "sensor": "pressure_n549",
+      "score_contribution": 0.042934422760542455,
+      "score_share": 0.026019591589819025,
+      "smoothed_normalized_residual": 1.416835951097901,
+      "observed_pressure_m": 54.97,
+      "expected_pressure_m": 54.955012577531114,
+      "signed_residual_m": 0.014987422468884404
+    },
+    {
+      "sensor": "pressure_n636",
+      "score_contribution": 0.03973419037160169,
+      "score_share": 0.024080151522878727,
+      "smoothed_normalized_residual": 1.3112282822628558,
+      "observed_pressure_m": 45.61,
+      "expected_pressure_m": 45.60073530893243,
+      "signed_residual_m": 0.009264691067571107
+    },
+    {
+      "sensor": "pressure_n54",
+      "score_contribution": 0.03810275498781597,
+      "score_share": 0.023091451089475072,
+      "smoothed_normalized_residual": 1.257390914597927,
+      "observed_pressure_m": 37.26,
+      "expected_pressure_m": 37.266495397079346,
+      "signed_residual_m": -0.0064953970793482085
+    },
+    {
+      "sensor": "pressure_n332",
+      "score_contribution": 0.037724313730028484,
+      "score_share": 0.022862103951788216,
+      "smoothed_normalized_residual": 1.24490235309094,
+      "observed_pressure_m": 56.57,
+      "expected_pressure_m": 56.57351675960805,
+      "signed_residual_m": -0.003516759608046982
+    },
+    {
+      "sensor": "pressure_n1",
+      "score_contribution": 0.03624756777526148,
+      "score_share": 0.021967150109290828,
+      "smoothed_normalized_residual": 1.1961697365836288,
+      "observed_pressure_m": 28.03,
+      "expected_pressure_m": 27.919378564280056,
+      "signed_residual_m": 0.11062143571994554
+    },
+    {
+      "sensor": "pressure_n495",
+      "score_contribution": 0.03453580860838649,
+      "score_share": 0.02092977097249366,
+      "smoothed_normalized_residual": 1.139681684076754,
+      "observed_pressure_m": 51.78,
+      "expected_pressure_m": 51.77867320140257,
+      "signed_residual_m": 0.0013267985974323437
+    },
+    {
+      "sensor": "pressure_n415",
+      "score_contribution": 0.034419649753833936,
+      "score_share": 0.020859375104547433,
+      "smoothed_normalized_residual": 1.13584844187652,
+      "observed_pressure_m": 45.76,
+      "expected_pressure_m": 45.75230629094421,
+      "signed_residual_m": 0.0076937090557862575
+    },
+    {
+      "sensor": "pressure_n114",
+      "score_contribution": 0.033226568557609706,
+      "score_share": 0.020136330902174305,
+      "smoothed_normalized_residual": 1.0964767624011202,
+      "observed_pressure_m": 54.13,
+      "expected_pressure_m": 54.13775545935131,
+      "signed_residual_m": -0.007755459351308502
+    },
+    {
+      "sensor": "pressure_n722",
+      "score_contribution": 0.031048991446331376,
+      "score_share": 0.018816651646049044,
+      "smoothed_normalized_residual": 1.0246167177289354,
+      "observed_pressure_m": 46.13,
+      "expected_pressure_m": 46.123329329126875,
+      "signed_residual_m": 0.006670670873127449
+    },
+    {
+      "sensor": "pressure_n519",
+      "score_contribution": 0.031037731032605965,
+      "score_share": 0.01880982748614589,
+      "smoothed_normalized_residual": 1.0242451240759969,
+      "observed_pressure_m": 47.73,
+      "expected_pressure_m": 47.72643738021351,
+      "signed_residual_m": 0.0035626197864857545
+    },
+    {
+      "sensor": "pressure_n342",
+      "score_contribution": 0.03080456272858708,
+      "score_share": 0.018668520263358728,
+      "smoothed_normalized_residual": 1.0165505700433737,
+      "observed_pressure_m": 46.88,
+      "expected_pressure_m": 46.88645615154205,
+      "signed_residual_m": -0.006456151542046484
+    },
+    {
+      "sensor": "pressure_n410",
+      "score_contribution": 0.026915939354205193,
+      "score_share": 0.016311893912228946,
+      "smoothed_normalized_residual": 0.8882259986887714,
+      "observed_pressure_m": 31.21,
+      "expected_pressure_m": 31.195574859297054,
+      "signed_residual_m": 0.014425140702947203
+    },
+    {
+      "sensor": "pressure_n163",
+      "score_contribution": 0.026688878053595738,
+      "score_share": 0.016174287722886142,
+      "smoothed_normalized_residual": 0.8807329757686594,
+      "observed_pressure_m": 52.72,
+      "expected_pressure_m": 52.71688495939824,
+      "signed_residual_m": 0.0031150406017559362
+    },
+    {
+      "sensor": "pressure_n458",
+      "score_contribution": 0.02580335657792467,
+      "score_share": 0.015637634248598604,
+      "smoothed_normalized_residual": 0.8515107670715141,
+      "observed_pressure_m": 43.67,
+      "expected_pressure_m": 43.66924324993289,
+      "signed_residual_m": 0.0007567500671115113
+    },
+    {
+      "sensor": "pressure_n296",
+      "score_contribution": 0.022776161452830446,
+      "score_share": 0.013803060129436799,
+      "smoothed_normalized_residual": 0.7516133279434047,
+      "observed_pressure_m": 42.45,
+      "expected_pressure_m": 42.43795423036023,
+      "signed_residual_m": 0.012045769639769333
+    },
+    {
+      "sensor": "pressure_n469",
+      "score_contribution": 0.018802146178621876,
+      "score_share": 0.011394683639008278,
+      "smoothed_normalized_residual": 0.6204708238945219,
+      "observed_pressure_m": 47.66,
+      "expected_pressure_m": 47.65611757865244,
+      "signed_residual_m": 0.0038824213475550096
+    },
+    {
+      "sensor": "pressure_n726",
+      "score_contribution": 0.017565877661947383,
+      "score_share": 0.010645466581202996,
+      "smoothed_normalized_residual": 0.5796739628442636,
+      "observed_pressure_m": 47.08,
+      "expected_pressure_m": 47.08215323242646,
+      "signed_residual_m": -0.0021532324264583735
+    },
+    {
+      "sensor": "pressure_n105",
+      "score_contribution": 0.01680780368553029,
+      "score_share": 0.010186050243611746,
+      "smoothed_normalized_residual": 0.5546575216224995,
+      "observed_pressure_m": 50.64,
+      "expected_pressure_m": 50.64058158617381,
+      "signed_residual_m": -0.0005815861738085459
+    },
+    {
+      "sensor": "pressure_n188",
+      "score_contribution": 0.015542098698833466,
+      "score_share": 0.009418993772147667,
+      "smoothed_normalized_residual": 0.5128892570615043,
+      "observed_pressure_m": 55.48,
+      "expected_pressure_m": 55.47525399017834,
+      "signed_residual_m": 0.004746009821658959
+    },
+    {
+      "sensor": "pressure_n516",
+      "score_contribution": 0.01522154800701876,
+      "score_share": 0.009224730112627417,
+      "smoothed_normalized_residual": 0.5023110842316191,
+      "observed_pressure_m": 55.02,
+      "expected_pressure_m": 55.023437870584374,
+      "signed_residual_m": -0.003437870584370728
+    },
+    {
+      "sensor": "pressure_n4",
+      "score_contribution": 0.010635775575959952,
+      "score_share": 0.00644560981455137,
+      "smoothed_normalized_residual": 0.3509805940066784,
+      "observed_pressure_m": 33.0,
+      "expected_pressure_m": 32.97188415213474,
+      "signed_residual_m": 0.02811584786525856
+    },
+    {
+      "sensor": "pressure_n215",
+      "score_contribution": 0.005276711052756189,
+      "score_share": 0.00319785052883905,
+      "smoothed_normalized_residual": 0.17413146474095423,
+      "observed_pressure_m": 39.1,
+      "expected_pressure_m": 39.09945149146984,
+      "signed_residual_m": 0.0005485085301586423
+    }
+  ],
+  "flows": [
+    {
+      "sensor": "flow_p227",
+      "recent_hour_mean_m3_h": 67.83500000000001,
+      "previous_context_mean_m3_h": 71.74333333333335,
+      "change_m3_h": -3.9083333333333456
+    },
+    {
+      "sensor": "flow_p235",
+      "recent_hour_mean_m3_h": 63.086666666666666,
+      "previous_context_mean_m3_h": 73.10454545454546,
+      "change_m3_h": -10.017878787878793
+    },
+    {
+      "sensor": "flow_PUMP_1",
+      "recent_hour_mean_m3_h": 44.232499999999995,
+      "previous_context_mean_m3_h": 44.2130303030303,
+      "change_m3_h": 0.019469696969693473
+    }
+  ],
+  "causal": true,
+  "localization_claim": false,
+  "limitations": "Contributions explain this anomaly score, not its physical cause. Expected pressure is a conditional Ridge prediction, not a hydraulic leak-free counterfactual. Alarm score is not a leak probability.",
+  "evidence_sha256": "5b6149e12ebc949bb9583d7d2383b74acca0e707c7db7d28a0fa6ca3b47b936b"
+}

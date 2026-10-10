@@ -1,0 +1,15 @@
+protocol_id: final_2019_v1
+recorded_date: '2026-10-08'
+train_path: data/processed/battledim.csv
+raw_dir: data/raw
+output_dir: artifacts/results/final_2019
+detector: baseline_deduplicated
+baseline:
+  rolling_window: 6
+  alpha: 1.0
+  threshold_quantile: 0.995
+  persistence_hours: 3
+  recovery_hours: 24
+  cooldown_hours: 24
+warmup_days: 28
+max_detection_delay_hours: 48

@@ -2,7 +2,9 @@
 
 Water Watch is a Python research prototype for detecting leaks in water-distribution networks from pressure and flow measurements. It prepares the BattLeDIM benchmark, trains detectors, generates alarms, evaluates them against individual leak events, and produces a browser-readable visual report.
 
-The intended final system will explain alarms and route suggested actions through human approval. SHAP explanations, the LangGraph approval workflow, and the Streamlit dashboard are not implemented yet. The current system is a batch command-line pipeline with saved reports, not a live monitoring service.
+The system now includes a saved-results Streamlit dashboard, exact sensor-level residual-score explanations, development case studies, and a persistent LangGraph human-approval workflow. Summaries are deterministic and require no API key. LightGBM SHAP explanations remain future work. This is historical replay and decision-support research, not a live monitoring service or an operationally validated leak detector.
+
+**Held-out result:** the frozen baseline detected 2 of 19 new events in 2019 (10.5% recall), with no unmatched alerts. High precision with very low recall is not operational success. See [the final-test procedure](docs/FINAL_2019_PROTOCOL.md) and [research brief](docs/RESEARCH_BRIEF.md).
 
 ## System Overview
 
@@ -26,6 +28,8 @@ Current implementation status:
 - Phase 2 residual baseline workflow is implemented and produces a saved model, test scores, alarms, and a leak-overlay plot.
 - Phase 3 experimental LightGBM detector and Phase 4 event evaluation are implemented. The first LightGBM run did not improve detection; the baseline remains the working detector.
 - Baseline notification de-duplication and a standalone HTML visual report are implemented.
+- The chronological development experiments and a frozen 2019 final-year test are implemented.
+- Exact residual-score explanations, three development case studies, and SQLite-backed LangGraph review are implemented. No LLM or explanation changes detector predictions.
 
 ## Setup
 
@@ -230,13 +234,136 @@ The single-file visual report shows the score/threshold, a full-period view and 
 
 The replay writes a separate model, alarm list, and manifest to `artifacts/baseline_deduplicated/`. On the inspected 2018 test slice, nine notifications become two, precision rises from 22.2% to 100%, recall stays 100%, and mean delay stays 4.46 hours. This is an exploratory alarm-policy result on two known events, not a fresh accuracy estimate. The original files in `artifacts/baseline/` remain unchanged by this command. A later `run_comparison.py` run uses the new policy and overwrites its standard output directories; preserve the legacy run before doing that if you need to repeat this comparison.
 
-See `docs/DETECTION_IMPROVEMENT_PLAN.md` for the follow-up order, validation cautions, target alternatives, and the 2019 holdout. Change detection, blocked validation, revised regression targets, and simulation are not implemented yet.
+See `docs/DETECTION_IMPROVEMENT_PLAN.md` for the follow-up order and cautions. Chronological validation, EWMA/CUSUM, compact classification, and leak-flow regression are now implemented as development experiments. Simulation remains future work.
+
+## Chronological Development Experiments
+
+The recorded procedure is in [docs/VALIDATION_PROTOCOL_V1.md](docs/VALIDATION_PROTOCOL_V1.md), with frozen settings in `configs/validation_v1.yaml`. It evaluates eight outer months, May through December 2018, using earlier fitting data and a preceding 28-day calibration block. This replaces reliance on the small fixed split for development; it is **not an untouched test**, because the original 2018 results were already inspected. The runner refuses 2019 observations.
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest -q
+.\.venv\Scripts\python.exe scripts/run_validation.py
+Get-Content artifacts/results/validation_v1/report.md
+Invoke-Item artifacts/results/validation_v1/report.html
+```
+
+For a faster smoke run, add `--fold 2018-05`; subset results go into a separate directory. The full run compares the original and de-duplicated residual baselines, EWMA, CUSUM, a 21-feature regularized LightGBM classifier, and total-leak-flow regression. Classifier rows with ongoing leaks outside the 48-hour onset window are unknown, not negative. Regression predicts cubic metres per hour, then alarms on a trailing rise.
+
+Saved outputs include a portable visual report, pooled and fold-level metrics, per-event outcomes, notification and calibration audits, fitted models, timelines, and a manifest with protocol/input/code SHA-256 hashes. Candidate selection uses calibration only; outer results do not choose parameters. Alarm state carries from calibration into the outer month. Event matching uses a 48-hour deadline for this protocol, distinct from the original fixed-split evaluation above.
+
+To regenerate the visual report from existing results without retraining, run `.\.venv\Scripts\python.exe scripts/render_validation_report.py`. A separate presentation manifest records its renderer and input hashes; the experiment manifest is preserved.
+
+Passing tests is not evidence of accuracy. Inspect misses, delay spread, uninformative calibration, and scarce classifier negatives before selecting a final detector. Preserve 2019 as the final test until the detector and final procedure are frozen. The [release checklist](docs/RELEASE_CHECKLIST.md) tracks the dashboard, public deployment, research brief, and remaining evidence required for a supervisor-ready demonstration.
+
+The completed [development results](docs/DEVELOPMENT_RESULTS_V1.md) report nine new events across eight months. The de-duplicated baseline detected four, with 80% precision and 44.4% recall; five events were missed. It remains the strongest candidate in this experiment, not an independently validated operational detector.
+
+## Public Demo Deployment
+
+Deployment settings and privacy behaviour are in [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+Use `deployment/streamlit_app.py` (not root `app.py`) on Streamlit Community Cloud,
+branch `main`, Python 3.11. It runs from the curated `demo_bundle/` without raw
+data, models, training, or API keys. Public review histories are session-isolated
+and temporary; local research reviews remain persistent. See
+[DATA_ATTRIBUTION.md](DATA_ATTRIBUTION.md) for the CC BY 4.0 dataset attribution.
+The public URL will be added after the cloud deployment is verified.
+
+## Local Research Dashboard
+
+### Explain and Review Incidents
+
+Generate causal explanations for the five development baseline notifications and
+three fixed-rule case studies:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/build_incident_evidence.py
+```
+
+The dashboard's **Incident Review** view shows additive sensor contributions,
+measured versus expected pressure, and a deterministic incident summary. Start a
+review, explicitly choose approval or rejection, and enter a reviewer name.
+LangGraph pauses with a real interrupt and persists checkpoints and decisions to
+`artifacts/incidents/reviews.sqlite`. Reopening the app preserves pending and
+completed reviews. Decisions cannot be silently overwritten. Approval accepts a
+review recommendation only; no physical action is executed. Reviewer names are
+self-reported, not authenticated; this local workflow is not a production audit
+or security system.
+
+The same workflow is available through a CLI; select a real alarm evidence JSON
+from `artifacts/explanations/incidents.json`:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/review_incident.py artifacts/explanations/<alarm-id>.json
+```
+
+The **Case Studies** view separates a detected event, unmatched notification, and
+missed-event diagnostic. Missed snapshots are never treated as real notifications.
+Contributions explain the residual score, not physical leak location. Expected
+pressure is a conditional Ridge prediction, not a hydraulic leak-free baseline.
+
+### Official 2019 Download and Frozen Test
+
+The download retrieves pressure, flow and leakage CSVs from the official
+[Zenodo release](https://zenodo.org/records/4017659), checks published MD5 hashes,
+records SHA-256 provenance, and places them alongside 2018 under `data/raw/`.
+It does not parse the file contents.
+
+```powershell
+.\.venv\Scripts\python.exe scripts/download_battledim_2019.py
+.\.venv\Scripts\python.exe scripts/run_final_2019.py freeze
+.\.venv\Scripts\python.exe scripts/run_final_2019.py evaluate
+```
+
+Freeze fits only 2018 and records protocol, implementation, input and model hashes.
+Evaluate saves sensor-only predictions before opening 2019 labels and refuses a
+changed freeze or an already completed final test. Do not run these against an
+existing completed output expecting it to be overwritten. Results are in
+`artifacts/results/final_2019/` and the dashboard's **2019 Final Test** view. After
+observing these outcomes, 2019 is no longer untouched for further model tuning.
+
+### Run the Dashboard
+
+After running the chronological experiments, launch the saved-results dashboard:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m streamlit run app.py --server.address 127.0.0.1 --server.port 8501
+```
+
+Open `http://127.0.0.1:8501`. If that port is occupied, choose another with
+`--server.port`. The dashboard reads artifacts from `artifacts/results/validation_v1/`;
+it does not load model pickles, retrain detectors, or simulate a live sensor feed.
+Set the `WATER_WATCH_RESULTS` environment variable to use another completed run.
+`WATER_WATCH_EXPLANATIONS`, `WATER_WATCH_REVIEW_DB`, and
+`WATER_WATCH_FINAL_RESULTS` override the corresponding artifact paths.
+Restart the app after regenerating experiments to clear its cached results.
+
+The replay view offers detector/month selection, event-centred windows, a replay
+cutoff, ground-truth overlays, predicted flow, and CSV export. Other views show
+pooled/monthly metrics, detected and missed events, notifications, calibration
+candidates, and the experiment manifest. Monthly audit results describe the
+completed month, not the partial replay cutoff. Ground truth is evaluation-only;
+it is not evidence available to an operational detector.
+
+For optional desktop/mobile browser verification with installed Chrome or Edge:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
+.\.venv\Scripts\python.exe scripts/check_dashboard.py --url http://127.0.0.1:8501
+```
+
+Screenshots are saved under `artifacts/dashboard_checks/` (ignored by Git).
+This is currently a local app, not a public deployment. A fresh Git clone needs
+the dataset preparation and experiment commands first; raw data and generated
+artifacts are not committed. Public hosting needs a reviewed, licensed demo
+artifact bundle and a deployment check, rather than training at app startup.
 
 ## Repository Layout
 
 ```text
 config.yaml                    Data paths and detector settings
+app.py                         Saved-results Streamlit replay dashboard
 requirements.txt               Python dependencies
+requirements-dev.txt           Optional browser-verification dependency
 scripts/                       Preparation, training, evaluation, report commands
 src/data/                      Loading and preprocessing
 src/detection/                 Ridge, LightGBM, features, alarm policies

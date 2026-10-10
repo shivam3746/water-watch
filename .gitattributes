@@ -1,0 +1,2 @@
+# Preserve exact byte hashes across Windows checkout and Linux deployment.
+demo_bundle/** -text whitespace=cr-at-eol

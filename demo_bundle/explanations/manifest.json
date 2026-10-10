@@ -1,0 +1,9 @@
+{
+  "source_sha256": "03c36407098547077478af64c0644407fc1569265c3e379fc2cddd25249f6cf9",
+  "baseline_only": true,
+  "2019_used": false,
+  "case_rule": "First chronological matched notification, unmatched notification, and missed event in development audits.",
+  "explanation_sha256": "d51e64d89e47ebd6c4f5de77340470093e4ba8284ec9548770cd063ccd9d7dbc",
+  "incidents": 5,
+  "cases": 3
+}

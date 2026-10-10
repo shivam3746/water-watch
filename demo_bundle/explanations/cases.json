@@ -1,0 +1,41 @@
+[
+  {
+    "id": "baseline_deduplicated-17ffc4a2e9e6",
+    "fold": "2018-05",
+    "timestamp": "2018-05-10T14:35:00",
+    "evidence_file": "baseline_deduplicated-17ffc4a2e9e6.json",
+    "trace_file": "baseline_deduplicated-17ffc4a2e9e6.csv",
+    "plot_file": "baseline_deduplicated-17ffc4a2e9e6.png",
+    "model_sha256": "a43e6f8c12bf405fa5ffeb3caa57d7c351d624d60838d131af4a25542616fc04",
+    "category": "unmatched_alert",
+    "evaluation_status": "late",
+    "event_id": null,
+    "interpretation": "Unmatched new-onset notification, not proof that no leak was present."
+  },
+  {
+    "id": "baseline_deduplicated-5f3f5e6aa2e0",
+    "fold": "2018-07",
+    "timestamp": "2018-07-31T10:20:00",
+    "evidence_file": "baseline_deduplicated-5f3f5e6aa2e0.json",
+    "trace_file": "baseline_deduplicated-5f3f5e6aa2e0.csv",
+    "plot_file": "baseline_deduplicated-5f3f5e6aa2e0.png",
+    "model_sha256": "cf55b752d535e0c155ae3adb5de7404eff69559747527015bc34cf19a6a861f4",
+    "category": "detected_event",
+    "evaluation_status": "matched",
+    "event_id": "p810-2018-07-30T18:40:00",
+    "interpretation": "Retrospective temporal match only."
+  },
+  {
+    "id": "missed_event_snapshot",
+    "fold": "2018-05",
+    "timestamp": "2018-05-04T18:45:00",
+    "evidence_file": "missed_event_snapshot.json",
+    "trace_file": "missed_event_snapshot.csv",
+    "plot_file": "missed_event_snapshot.png",
+    "model_sha256": "a43e6f8c12bf405fa5ffeb3caa57d7c351d624d60838d131af4a25542616fc04",
+    "category": "missed_event",
+    "evaluation_status": "missed",
+    "event_id": "p628-2018-05-02T18:50:00",
+    "interpretation": "Retrospective diagnostic at the end of the allowed detection window. No alarm existed and this is not an operator notification."
+  }
+]

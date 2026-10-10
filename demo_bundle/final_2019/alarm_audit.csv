@@ -1,0 +1,3 @@
+alarm_id,timestamp,status,event_id,candidate_event_ids,ambiguous_match,delay_hours
+baseline_deduplicated-b12340600ee1,2019-01-16T02:05:00,matched,p523-2019-01-15T23:00:00,['p523-2019-01-15T23:00:00'],False,3.0833333333333335
+baseline_deduplicated-10dc522f9894,2019-04-02T23:40:00,matched,p514-2019-04-02T20:40:00,['p514-2019-04-02T20:40:00'],False,3.0

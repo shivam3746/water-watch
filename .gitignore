@@ -6,6 +6,7 @@ __pycache__/
 .ipynb_checkpoints/
 .venv/
 venv/
+/artifacts/cloud_check_venv/
 
 /data/raw/**
 !/data/raw/**/
@@ -20,6 +21,11 @@ venv/
 
 # Local secrets, build output, coverage, and runtime logs
 .env
+.streamlit/secrets.toml
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.db
 .env.*
 !.env.example
 *.pem

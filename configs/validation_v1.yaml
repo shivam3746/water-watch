@@ -1,0 +1,45 @@
+protocol_id: development_2018_v1
+recorded_date: '2026-10-06'
+status: retrospective_development_not_untouched_test
+data_path: data/processed/battledim.csv
+leakage_path: data/raw/2018_Leakages.csv
+output_dir: artifacts/results/validation_v1
+year: 2018
+test_starts:
+  - '2018-05-01'
+  - '2018-06-01'
+  - '2018-07-01'
+  - '2018-08-01'
+  - '2018-09-01'
+  - '2018-10-01'
+  - '2018-11-01'
+  - '2018-12-01'
+calibration_days: 28
+reference_days: 7
+rolling_window: 6
+max_detection_delay_hours: 48
+recovery_hours: 24
+cooldown_hours: 24
+baseline:
+  alpha: 1.0
+  threshold_quantile: 0.995
+  persistence_hours: 3
+ewma:
+  alphas: [0.02, 0.1]
+  quantiles: [0.99, 0.995]
+cusum:
+  reference_shifts: [0.25, 0.5]
+  decision_limits: [5.0, 10.0]
+supervised:
+  onset_window_hours: 48
+  probability_thresholds: [0.1, 0.3, 0.5, 0.7]
+  rise_quantiles: [0.95, 0.99, 0.995]
+  persistence_hours: 1
+  n_estimators: 60
+  max_depth: 3
+  num_leaves: 7
+  min_child_samples: 200
+  reg_alpha: 1.0
+  reg_lambda: 10.0
+  learning_rate: 0.05
+  random_state: 42

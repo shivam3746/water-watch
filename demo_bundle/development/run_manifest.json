@@ -1,0 +1,45 @@
+{
+  "protocol_id": "development_2018_v1",
+  "protocol_sha256": "73bacc6efe77e19e5eeaf1421c98c01cb06a6282afe2b6023ddefe1d786436bb",
+  "status": "retrospective_development_not_untouched_test",
+  "selected_folds": [
+    "2018-05",
+    "2018-06",
+    "2018-07",
+    "2018-08",
+    "2018-09",
+    "2018-10",
+    "2018-11",
+    "2018-12"
+  ],
+  "input_sha256": {
+    "data_path": "03c36407098547077478af64c0644407fc1569265c3e379fc2cddd25249f6cf9",
+    "leakage_path": "e1abd9d549a18880d8ae704dc90c06c8a3d5aecbd2541fa091548ef392084ba6"
+  },
+  "source_sha256": {
+    "scripts\\run_validation.py": "2e02d2ee72235bf403873edbe51ada3e3cf2f84603ff959d9b2ef8a95a7182ac",
+    "src\\__init__.py": "8f2e80bc519f8562909fda8bd19d77dec2eea3345459b48a3c98ab96086df89d",
+    "src\\agent\\__init__.py": "cb3db6f8f8e2a95b7622763c920ce8182cfb1e85646b693c4b4b939c714ab105",
+    "src\\agent\\schemas.py": "10b3a2f03b7464a1eb9a2130c712955c36b7ca56c918b3259c64098a355ec0da",
+    "src\\data\\__init__.py": "33cf9ce1a81253ebdca6f009dfc89f3e7432727eed48c18ab616091a663b7131",
+    "src\\data\\battledim.py": "26ba7a10aa933be70f260c7934a23bde6bf798376a15ec425357b46ebda0fa6d",
+    "src\\data\\loader.py": "7b79ba41a1627c87a7c8453b354c93b29b6250260b6a5a42514e4283316fc8ae",
+    "src\\data\\preprocessing.py": "88757dc945a7ba81d8e7ba151ded32c27537f3f26b12adda0b79f2de7f5763ae",
+    "src\\detection\\__init__.py": "738dded029b1c2e1a74fe8e6ac58cd4f7ca03a8e7de0c8327564a26f48fa561d",
+    "src\\detection\\alarms.py": "fc484af37ebf8d395c46ae7edde83f0a5393460176031a2f9b3f26e2bc8cde30",
+    "src\\detection\\baseline.py": "9e2ed5b5a1e564b0e056b017d9d5a5062e8a9639d9d0663ec76a1e72708c4ece",
+    "src\\detection\\change.py": "2a2ec18d3197811cc79c2aab522518be04e463b31541da8d65fd5dddaa6bc235",
+    "src\\detection\\classifier.py": "ecf8aef863d7abc0ac3f70e3a2ac7790370e9cc41dda689ca5adcc1a4c1ac5ea",
+    "src\\detection\\compact_features.py": "2579bfa3fcd0a1c3f5a4bc283c760390a485cbde580ba175d4bd2bd70e27807a",
+    "src\\detection\\features.py": "b1056fb01ac0caa8ba1bfbe90e5fc34f7759e385d8611d364f837d422f245a20",
+    "src\\evaluation\\__init__.py": "db32e4bfb13f5c3612477344edfc0a5cb6b3187d477cc32dc55b4f4a9de45242",
+    "src\\evaluation\\metrics.py": "f3ee0403344c5189bd25c1e9496f8de128f111c1ea2502332bb73c104c0f24c8",
+    "src\\evaluation\\plots.py": "1cecdfa17b60ac8b6c70b01271dbc0e0acf7944bed14c924f90d084c183faca9",
+    "src\\evaluation\\validation.py": "a9e07a03d22f50b5c3500b4bc66b4faf3ea6c2f59d573c142a3bb0afaf880388",
+    "src\\explanation\\__init__.py": "4a09e008e6e2d7427e5eab122b4cbfbc4c8390186ffca237809fa3789be895dd",
+    "src\\utils\\__init__.py": "67386d124339118bb3f0e8ba78e7af305e0b8726b3df47f8061edec4c06e072a",
+    "src\\utils\\config.py": "027b9a857e623e053775d19877f336cf1f1773508ec97677dfb3c656630d922a"
+  },
+  "python_version": "3.11.0",
+  "2019_loaded": false
+}
