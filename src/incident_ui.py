@@ -8,6 +8,7 @@ import plotly.graph_objects as go
 import streamlit as st
 
 from src.agent.graph import decisions, review, review_state, summarize
+from src.post_test_ui import diagnostic_panel
 
 
 def evidence_view(record: dict, directory: Path) -> dict:
@@ -126,3 +127,4 @@ def final_test_panel(path: Path):
     with st.expander("Frozen final-test manifest"):
         st.json(result["frozen_manifest"])
     st.download_button("Download final evaluation", evaluation.read_bytes(), "water_watch_final_2019.json", "application/json", icon=":material/download:")
+    diagnostic_panel(path.parent / "diagnostics_2019")

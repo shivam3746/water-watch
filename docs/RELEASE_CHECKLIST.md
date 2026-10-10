@@ -11,6 +11,8 @@ This is a reviewable prototype, not an operational leak-warning service.
 - [x] Download official 2019 sensors/labels alongside 2018 and verify checksums.
 - [x] Freeze the 2018-only detector/procedure before loading 2019; complete and
   preserve the final test, including its low recall (2 of 19 new events detected).
+- [x] Record and implement a separate post-test missed-event and yearly-condition
+  diagnostic protocol; preserve frozen predictions and outcomes without tuning.
 - [x] Prepare a concise results document with explicit development/test status
   (`DEVELOPMENT_RESULTS_V1.md`).
 

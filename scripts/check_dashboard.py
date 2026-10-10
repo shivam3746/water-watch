@@ -76,6 +76,16 @@ def main() -> None:
             surface.get_by_text("Held-out 2019 test", exact=True).wait_for()
             page.wait_for_timeout(400)
             page.screenshot(path=str(output / f"{name}_final_test.png"), full_page=True)
+            diagnostics = surface.get_by_text("Post-test failure analysis", exact=True)
+            if diagnostics.count():
+                diagnostics.scroll_into_view_if_needed()
+                final_panel = surface.get_by_role("tabpanel", name="2019 Final Test", exact=True)
+                size_plot = final_panel.get_by_test_id("stPlotlyChart").first
+                size_plot.wait_for()
+                assert size_plot.locator(".scatterlayer .point").count() == 19
+                page.screenshot(path=str(output / f"{name}_diagnostics.png"))
+                assert surface.get_by_text("Research hypothesis and next experiment", exact=True).count() == 1
+                assert surface.get_by_test_id("stException").count() == 0
             overflow = page.evaluate("document.documentElement.scrollWidth > window.innerWidth + 2")
             assert not overflow, f"Document overflow at {name} viewport"
             assert not surface.evaluate("document.documentElement.scrollWidth > window.innerWidth + 2"), f"App overflow at {name} viewport"

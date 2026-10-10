@@ -29,6 +29,12 @@ def package(root: Path = ROOT) -> dict:
     final = source / "results/final_2019"
     for name in ["evaluation.json", "frozen_manifest.json", "prediction_manifest.json", "report.md", "event_audit.csv", "alarm_audit.csv"]:
         files.append((final / name, Path("final_2019") / name))
+    diagnostics = source / "results/diagnostics_2019"
+    if (diagnostics / "summary.json").exists():
+        for name in ["summary.json", "manifest.json", "report.md", "event_size_2019.csv", "event_size_reference_2018.csv",
+                     "sensor_comparison.csv", "monthly_sensor_means.csv", "detection_by_leak_size.png",
+                     "yearly_leak_sizes.png", "monthly_flow_comparison.png"]:
+            files.append((diagnostics / name, Path("diagnostics_2019") / name))
     for path, relative in files:
         if not path.is_file() or not path.resolve().is_relative_to(source.resolve()):
             raise ValueError(f"Unavailable demo input: {path}")

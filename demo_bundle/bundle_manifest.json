@@ -171,6 +171,46 @@
     "final_2019/alarm_audit.csv": {
       "sha256": "f54baa4d1a445ad59ef7d7dc2b113b8885548da9af424f54fbdcdb873cad0940",
       "bytes": 355
+    },
+    "diagnostics_2019/event_size_2019.csv": {
+      "sha256": "9b0887cafffedfaab24583edfafa8a7c4a3d74f70d647f94ac01bf3d72bb7bdb",
+      "bytes": 4993
+    },
+    "diagnostics_2019/event_size_reference_2018.csv": {
+      "sha256": "5f90fe37ed2b3a1313399da2b751104d2095cd6b757831f96a371960101fadeb",
+      "bytes": 2791
+    },
+    "diagnostics_2019/sensor_comparison.csv": {
+      "sha256": "630bed5eb63a1b90ea86f413ac5367e4109d70ecae58a4caa6e8363891d95275",
+      "bytes": 6986
+    },
+    "diagnostics_2019/monthly_sensor_means.csv": {
+      "sha256": "0be65ed5023335f3887d484c90e731dd6136afffc8be0508827941c67f1388da",
+      "bytes": 34607
+    },
+    "diagnostics_2019/summary.json": {
+      "sha256": "07a7a0b98ab0c5048bee20aa7640ce74515909e5c131ed8020cd8b0eea488ed6",
+      "bytes": 1159
+    },
+    "diagnostics_2019/report.md": {
+      "sha256": "9226026d6e5d9b45854795c2d584c501d79eeea89a432ce58a1eb00c6deb6720",
+      "bytes": 4746
+    },
+    "diagnostics_2019/manifest.json": {
+      "sha256": "f444b59d9c468d02c9ba3a7067eed53965feccda1f100330e8a0554f4d1e3c08",
+      "bytes": 2673
+    },
+    "diagnostics_2019/detection_by_leak_size.png": {
+      "sha256": "5941d412c98ed064de522d3af2a1e6999081764326530ea14c29800d2ceaadda",
+      "bytes": 113926
+    },
+    "diagnostics_2019/yearly_leak_sizes.png": {
+      "sha256": "9fe4163a32a7f9eebdf9d1be0a4e0680aea4902b7b1f34b12d568b6a6335690a",
+      "bytes": 49478
+    },
+    "diagnostics_2019/monthly_flow_comparison.png": {
+      "sha256": "b401aff19270372ee4a62ad8d3f1e23bdb5e1be49dd10249db809a54e1c405a4",
+      "bytes": 144635
     }
   },
   "excluded": [

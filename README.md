@@ -259,6 +259,38 @@ The completed [development results](docs/DEVELOPMENT_RESULTS_V1.md) report nine 
 
 ## Public Demo Deployment
 
+### Post-Test Failure Analysis
+
+The 2019 headline remains 2/19 detected. Exploratory diagnostics plot every new
+event against mean/peak leakage in its first 48 hours, replay frozen notification
+state, and compare 2018/2019 sensor and flow profiles. No detector is retuned.
+Detected events have median early mean leakage 21.82 m3/h versus 0.050 m3/h for
+misses, but two large missed leaks exceed the smaller detected event. Fourteen
+of seventeen misses start with an incident already open, and their windows
+contain persistent scores blocked by incident suppression. Size alone is not
+the explanation; condition changes and notification-policy effects need a
+controlled follow-up study.
+
+Protocol: [post-test diagnostics](docs/POST_TEST_ANALYSIS_V1.md).
+Run locally after the frozen evaluation:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/analyze_final_misses.py
+```
+
+Outputs go to `artifacts/results/diagnostics_2019/`; an existing output is never
+silently replaced. Source/prediction/output hashes are recorded separately from
+the unchanged final test. After reviewing these outputs, add only aggregate
+diagnostics to the demo bundle (an existing diagnostic bundle is not replaced):
+
+```powershell
+.\.venv\Scripts\python.exe -c "from pathlib import Path; from scripts.analyze_final_misses import publish; publish(Path('artifacts/results/diagnostics_2019'))"
+```
+
+`--publish` combines generation and packaging for a first reviewed build.
+The dashboard's **2019 Final Test** view includes the diagnostics when present.
+All findings are post-test, not independent confirmation or proof of causality.
+
 Deployment settings and privacy behaviour are in [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
 Use `deployment/streamlit_app.py` (not root `app.py`) on Streamlit Community Cloud,
 branch `main`, Python 3.11. It runs from the curated `demo_bundle/` without raw

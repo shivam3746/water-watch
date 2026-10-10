@@ -46,4 +46,12 @@ def test_public_entrypoint_uses_bundle_and_private_temporary_reviews(monkeypatch
     assert any("isolated to this browser session" in item.value for item in app.info)
     assert any("2/19" in item.value for item in app.warning)
     assert len(app.tabs) == 7
+    assert any(item.value == "Post-test failure analysis" for item in app.subheader)
+    assert any("Size alone does not explain" in item.value for item in app.markdown)
+    statistic = next(item for item in app.selectbox if item.label == "Leak-size statistic")
+    statistic.select("First-48h peak").run()
+    assert not app.exception
+    flow = next(item for item in app.selectbox if item.label == "Measured flowmeter")
+    flow.select("PUMP_1").run()
+    assert not app.exception
     workspace.cleanup()

@@ -1,0 +1,34 @@
+{
+  "protocol": "post_test_diagnostics_v1",
+  "status": "exploratory_post_test_no_retuning",
+  "input_sha256": {
+    "data\\processed\\battledim.csv": "03c36407098547077478af64c0644407fc1569265c3e379fc2cddd25249f6cf9",
+    "artifacts\\results\\final_2019\\baseline_model.joblib": "8355bd7b9bbd5f0155b1d85caa0c74a9feb82052007a453d8a25e302b7512b0d",
+    "data\\raw\\2019_SCADA_Pressures.csv": "a4af6616059cc9b366bbab76d880b2c772df544970c6ff4d4a29a58704ce05b1",
+    "data\\raw\\2019_SCADA_Flows.csv": "c709ea5ecc03197e1fe70cf4c2de7225f71015acb50a7445ed7765b5029f7f15",
+    "data\\raw\\2019_Leakages.csv": "b2ffe56b6c2f3b6cdb6aae9aeb30b9c425ba911fff8e3716ae543a56ff7576cd",
+    "artifacts\\results\\final_2019\\scores.csv.gz": "712fff8cb35fec3f9602bed2c0dd86364cbb999717215758118c2ae1ad610259",
+    "artifacts\\results\\final_2019\\alarms.json": "be8ab89d65c2763aaadaebf8c7e312a2c97ddbc717047ec1a2ea628af06049e6",
+    "data\\raw\\2018_Leakages.csv": "e1abd9d549a18880d8ae704dc90c06c8a3d5aecbd2541fa091548ef392084ba6",
+    "data\\raw\\2018_SCADA_Flows.csv": "7f7e8625c9d92b083ee079a54cffb9ef803876de1e35017c1da0455968daf3ff",
+    "data\\raw\\2018_SCADA_Pressures.csv": "7782d890a7195699be94ddc01cba392da7ca285908afff619065a9616e04dcae",
+    "artifacts/results/final_2019/evaluation.json": "91d6679b753d02730db02e382e9cbe5bd27524831fc3995d7313031d02dfeb8c"
+  },
+  "protected_final_outputs_unchanged": true,
+  "code_sha256": {
+    "scripts\\analyze_final_misses.py": "817d85d248360688bd4f7a1d816f3dec2a2cd217ffa583149d0b8cfdc28e84de",
+    "src\\evaluation\\post_test.py": "2123143c264141703a7384f02529282e61a51cac37018334faf9d2fd9c8b3ffd",
+    "docs\\POST_TEST_ANALYSIS_V1.md": "91e51ce5c96b9d0c6b510fa747ff9328e1fed5f1adac053862a0f0c746025794"
+  },
+  "output_sha256": {
+    "detection_by_leak_size.png": "5941d412c98ed064de522d3af2a1e6999081764326530ea14c29800d2ceaadda",
+    "event_size_2019.csv": "9b0887cafffedfaab24583edfafa8a7c4a3d74f70d647f94ac01bf3d72bb7bdb",
+    "event_size_reference_2018.csv": "5f90fe37ed2b3a1313399da2b751104d2095cd6b757831f96a371960101fadeb",
+    "monthly_flow_comparison.png": "b401aff19270372ee4a62ad8d3f1e23bdb5e1be49dd10249db809a54e1c405a4",
+    "monthly_sensor_means.csv": "0be65ed5023335f3887d484c90e731dd6136afffc8be0508827941c67f1388da",
+    "report.md": "9226026d6e5d9b45854795c2d584c501d79eeea89a432ce58a1eb00c6deb6720",
+    "sensor_comparison.csv": "630bed5eb63a1b90ea86f413ac5367e4109d70ecae58a4caa6e8363891d95275",
+    "summary.json": "07a7a0b98ab0c5048bee20aa7640ce74515909e5c131ed8020cd8b0eea488ed6",
+    "yearly_leak_sizes.png": "9fe4163a32a7f9eebdf9d1be0a4e0680aea4902b7b1f34b12d568b6a6335690a"
+  }
+}
