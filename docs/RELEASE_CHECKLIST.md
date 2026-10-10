@@ -29,8 +29,8 @@ This is a reviewable prototype, not an operational leak-warning service.
   CC BY 4.0 redistribution terms and include dataset attribution.
 - [x] Test the public entrypoint in a clean, deployment-only environment;
   verify bundle hashes and session-isolated temporary review storage.
-- [ ] Deploy the app; verify startup, resource use, and desktop/mobile usability.
-- [ ] Test the public URL in a signed-out browser session.
+- [x] Deploy the bundled app; verify startup and desktop/mobile usability.
+- [x] Test the public URL in fresh signed-out browser sessions.
 
 ## Handoff
 

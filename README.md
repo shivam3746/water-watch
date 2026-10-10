@@ -265,7 +265,8 @@ branch `main`, Python 3.11. It runs from the curated `demo_bundle/` without raw
 data, models, training, or API keys. Public review histories are session-isolated
 and temporary; local research reviews remain persistent. See
 [DATA_ATTRIBUTION.md](DATA_ATTRIBUTION.md) for the CC BY 4.0 dataset attribution.
-The public URL will be added after the cloud deployment is verified.
+Public app: [Water Watch research demo](https://water-watch-ukddepshzllqushgvdpzvv.streamlit.app/).
+Anonymous desktop/mobile startup and navigation were checked on 10 October 2026.
 
 ## Local Research Dashboard
 
@@ -352,10 +353,9 @@ For optional desktop/mobile browser verification with installed Chrome or Edge:
 ```
 
 Screenshots are saved under `artifacts/dashboard_checks/` (ignored by Git).
-This is currently a local app, not a public deployment. A fresh Git clone needs
-the dataset preparation and experiment commands first; raw data and generated
-artifacts are not committed. Public hosting needs a reviewed, licensed demo
-artifact bundle and a deployment check, rather than training at app startup.
+The local research dashboard needs dataset preparation and experiments first;
+raw inputs and full generated research artifacts are not committed. The public
+entrypoint instead uses the reviewed, licensed bundle already in the repository.
 
 ## Repository Layout
 

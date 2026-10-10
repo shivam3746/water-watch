@@ -6,7 +6,6 @@ __pycache__/
 .ipynb_checkpoints/
 .venv/
 venv/
-/artifacts/cloud_check_venv/
 
 /data/raw/**
 !/data/raw/**/
@@ -18,6 +17,7 @@ venv/
 /artifacts/**
 !/artifacts/**/
 !/artifacts/**/.gitkeep
+/artifacts/cloud_check_venv/
 
 # Local secrets, build output, coverage, and runtime logs
 .env

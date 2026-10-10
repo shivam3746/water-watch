@@ -2,6 +2,9 @@
 
 Target: Streamlit Community Cloud, Python 3.11.
 
+Live app: https://water-watch-ukddepshzllqushgvdpzvv.streamlit.app/
+Anonymous desktop/mobile startup, charts and navigation checked 10 October 2026.
+
 ## Deployment Settings
 
 - Repository: `shivam3746/water-watch`
@@ -17,6 +20,8 @@ accepted by the account owner. Do not enter tokens into the chat or repository.
 
 The requirements next to the deployment entrypoint pin the tested runtime
 packages; the full research dependencies remain at the repository root.
+PyArrow is pinned to 24.0.0, matching the working Cloud runtime rather than
+relying on the host's automatic replacement of 25.0.1.
 The entrypoint verifies the bundle hashes before rendering. It does not
 download datasets, load model pickles, refit models, or evaluate labels.
 
