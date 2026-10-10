@@ -253,7 +253,7 @@ Saved outputs include a portable visual report, pooled and fold-level metrics, p
 
 To regenerate the visual report from existing results without retraining, run `.\.venv\Scripts\python.exe scripts/render_validation_report.py`. A separate presentation manifest records its renderer and input hashes; the experiment manifest is preserved.
 
-Passing tests is not evidence of accuracy. Inspect misses, delay spread, uninformative calibration, and scarce classifier negatives before selecting a final detector. Preserve 2019 as the final test until the detector and final procedure are frozen. The [release checklist](docs/RELEASE_CHECKLIST.md) tracks the dashboard, public deployment, research brief, and remaining evidence required for a supervisor-ready demonstration.
+Passing tests is not evidence of accuracy. Inspect misses, delay spread, uninformative calibration, and scarce classifier negatives before selecting a final detector. Preserve 2019 as the final test until the detector and final procedure are frozen.
 
 The completed [development results](docs/DEVELOPMENT_RESULTS_V1.md) report nine new events across eight months. The de-duplicated baseline detected four, with 80% precision and 44.4% recall; five events were missed. It remains the strongest candidate in this experiment, not an independently validated operational detector.
 
@@ -410,16 +410,6 @@ artifacts/                     Generated models, plots, audits, reports (ignored
 ```
 
 Tests cover chronological separation, aligned ground truth, causal features, alarm persistence and recovery, deterministic replay, model reload, event matching/delays, preservation of legacy artifacts, and independence from unseen test labels. Passing tests verifies implementation behavior, not detection accuracy.
-
-## Development Priorities
-
-1. Data correctness
-2. Baseline residual detector
-3. Evaluation
-4. LightGBM detector
-5. SHAP explanation
-6. Human-in-the-loop incident agent
-7. Streamlit demo
 
 ## License
 

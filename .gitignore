@@ -39,6 +39,9 @@ coverage.xml
 htmlcov/
 *.log
 
+# Internal planning documents
+/docs/RELEASE_CHECKLIST.md
+
 # Editor and operating-system metadata
 .idea/
 .DS_Store
